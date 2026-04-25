@@ -15,7 +15,7 @@
   * Barra de búsqueda para filtrar los productos por nombre en tiempo real.
   * Botones clasificadores para filtrar rápidamente por categoría (Monitores, Periféricos, Sillas Gamer, Audio y Video).
 * **Diseño Responsivo:** Interfaz gráfica estéticamente limpia y adaptada a dispositivos móviles (Responsive Web Design), implementada usando Bootstrap 5 y estilos CSS nativos.
-* **Experiencia de Usuario (UX):** Alertas intuitivas personalizadas usando SweetAlert2 y notificaciones efímeras (Toasts) implementadas mediante Toastify JS.
+
 
 ## Tecnologías y Librerías Utilizadas
 
