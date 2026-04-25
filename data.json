@@ -1,0 +1,10 @@
+[
+    { "id": 1, "nombre": "Monitor 24'", "precio": 200, "img": "./assents/monitor.png.png", "categoria": "Monitores" },
+    { "id": 2, "nombre": "Teclado Mecánico", "precio": 50, "img": "./assents/teclado.png.png", "categoria": "Periféricos" },
+    { "id": 3, "nombre": "Mouse Gamer", "precio": 25, "img": "./assents/mouse.png.png", "categoria": "Periféricos" },
+    { "id": 4, "nombre": "Auriculares", "precio": 45, "img": "./assents/auriculares.png.png", "categoria": "Audio y Video" },
+    { "id": 5, "nombre": "Silla Gamer", "precio": 150, "img": "./assents/silla.png.png", "categoria": "Sillas Gamer" },
+    { "id": 6, "nombre": "Webcam HD", "precio": 35, "img": "./assents/webcam.png.png", "categoria": "Audio y Video" },
+    { "id": 7, "nombre": "Micrófono USB", "precio": 60, "img": "./assents/microfono.png.png", "categoria": "Audio y Video" },
+    { "id": 8, "nombre": "Pad Mouse XXL", "precio": 15, "img": "./assents/padmousse.png.png", "categoria": "Periféricos" }
+]
