@@ -1,0 +1,163 @@
+.item-list-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+/* ─── Hero greeting ─── */
+.hero-greeting {
+  text-align: center;
+  padding: 5rem 1rem 4rem;
+  animation: fadeInUp 0.7s ease both;
+}
+
+.hero-greeting__badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(77, 184, 255, 0.12);
+  border: 1px solid rgba(77, 184, 255, 0.35);
+  border-radius: 999px;
+  color: #4db8ff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  animation: fadeInUp 0.6s 0.1s ease both;
+}
+
+.hero-greeting__title {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #e2e8f0;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #e2e8f0 30%, #4db8ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.6s 0.2s ease both;
+}
+
+.hero-greeting__subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  animation: fadeInUp 0.6s 0.3s ease both;
+}
+
+.hero-greeting__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #2a9df4, #4db8ff);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  animation: fadeInUp 0.6s 0.4s ease both;
+  box-shadow: 0 4px 20px rgba(42, 157, 244, 0.35);
+}
+
+.hero-greeting__cta:hover {
+  box-shadow: 0 8px 30px rgba(42, 157, 244, 0.55);
+  transform: translateY(-3px);
+}
+
+.hero-greeting__cta:active {
+  transform: translateY(-1px);
+}
+
+/* ─── Category strip ─── */
+.category-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.6s 0.5s ease both;
+}
+
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+    transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.category-chip:hover {
+  background: rgba(77, 184, 255, 0.12);
+  border-color: rgba(77, 184, 255, 0.4);
+  color: #e2e8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(77, 184, 255, 0.2);
+}
+
+.category-chip:active {
+  transform: translateY(0);
+}
+
+/* ─── Coming soon placeholder ─── */
+.products-coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 4rem 2rem;
+  border: 1px dashed rgba(77, 184, 255, 0.25);
+  border-radius: 16px;
+  text-align: center;
+  background: rgba(77, 184, 255, 0.03);
+  animation: fadeInUp 0.6s 0.6s ease both;
+}
+
+.coming-soon-icon {
+  color: rgba(77, 184, 255, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.coming-soon-text {
+  color: #475569;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.coming-soon-sub {
+  color: #334155;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(77, 184, 255, 0.2);
+  background: rgba(77, 184, 255, 0.06);
+  color: #4db8ff;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
