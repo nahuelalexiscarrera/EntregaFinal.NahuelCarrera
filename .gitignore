@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vite cache
+.vite/
+
+# Legacy vanilla JS assets (migrated to public/assets)
+assents/

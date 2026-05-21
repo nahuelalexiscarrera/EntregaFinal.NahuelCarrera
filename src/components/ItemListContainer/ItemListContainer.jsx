@@ -1,75 +1,74 @@
+import ItemCard from "../ItemCard/ItemCard";
 import "./ItemListContainer.css";
 
-const ItemListContainer = ({ greeting }) => {
-  const categories = [
-    { id: "monitores", label: "Monitores", icon: "🖥️" },
-    { id: "perifericos", label: "Periféricos", icon: "⌨️" },
-    { id: "audio", label: "Audio y Video", icon: "🎧" },
-    { id: "sillas", label: "Sillas Gamer", icon: "🪑" },
-  ];
+const CATEGORIES = ["Todos", "Monitores", "Perifericos", "Sillas Gamer", "Audio y Video"];
 
+const ItemListContainer = ({ greeting, products, filtered, loading, activeCategory, searchQuery, onFilter, onSearch, onAdd }) => {
   return (
-    <section className="item-list-container" id="catalogo" aria-label="Catálogo de productos">
-      {/* Hero greeting */}
-      <div className="hero-greeting">
-        <div className="hero-greeting__badge">Bienvenido a TechStore</div>
-        <h1 className="hero-greeting__title">{greeting}</h1>
-        <p className="hero-greeting__subtitle">
-          Descubrí los mejores productos tecnológicos con garantía y envío a todo el país.
+    <section className="item-list-section" id="catalogo" aria-label="Catalogo de productos">
+      {/* Hero */}
+      <div className="ilc-hero" id="inicio">
+        <div className="ilc-hero-badge">Tu tienda de tecnologia</div>
+        <h1 className="ilc-hero-title">{greeting}</h1>
+        <p className="ilc-hero-sub">
+          Los mejores productos tech con garantia y envio a todo el pais.
         </p>
-        <a href="#catalogo" className="hero-greeting__cta" id="cta-catalogo">
-          Ver Catálogo
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
       </div>
 
-      {/* Category filter strip */}
-      <div className="category-strip" id="categorias" role="navigation" aria-label="Categorías">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            className="category-chip"
-            id={`cat-${cat.id}`}
-            aria-label={`Filtrar por ${cat.label}`}
-          >
-            <span aria-hidden="true">{cat.icon}</span>
-            {cat.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Placeholder product grid */}
-      <div className="products-coming-soon">
-        <div className="coming-soon-icon" aria-hidden="true">
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="2" y="3" width="20" height="14" rx="2" />
-            <path d="M8 21h8M12 17v4" />
+      {/* Search + Filters */}
+      <div className="ilc-toolbar" id="categorias">
+        <div className="ilc-search-wrapper">
+          <svg className="ilc-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
           </svg>
+          <input
+            id="buscador"
+            type="search"
+            className="ilc-search"
+            placeholder="Buscar productos..."
+            value={searchQuery}
+            onChange={(e) => onSearch(e.target.value)}
+            aria-label="Buscar productos"
+          />
         </div>
-        <p className="coming-soon-text">Los productos se cargarán aquí próximamente</p>
-        <span className="coming-soon-sub">Catálogo en construcción</span>
+
+        <div className="ilc-filters" role="group" aria-label="Filtros por categoria">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              className={`ilc-filter-btn category-btn${activeCategory === cat ? " ilc-filter-btn--active" : ""}`}
+              data-categoria={cat}
+              onClick={() => onFilter(cat)}
+              aria-pressed={activeCategory === cat}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
+
+      {/* Grid */}
+      {loading ? (
+        <div className="ilc-loading" aria-live="polite">
+          <div className="ilc-spinner" aria-hidden="true" />
+          <p>Cargando productos...</p>
+        </div>
+      ) : filtered.length === 0 ? (
+        <div className="ilc-no-results" aria-live="polite">
+          <p>No se encontraron productos.</p>
+          <button className="ilc-reset-btn" onClick={() => onFilter("Todos")}>
+            Ver todos
+          </button>
+        </div>
+      ) : (
+        <div className="ilc-grid" id="grid-productos" role="list">
+          {filtered.map((product) => (
+            <div key={product.id} role="listitem">
+              <ItemCard product={product} onAdd={onAdd} />
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

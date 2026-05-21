@@ -1,0 +1,97 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: backdropIn 0.2s ease both;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-box {
+  background: #1e293b;
+  border: 1px solid rgba(77, 184, 255, 0.2);
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  animation: modalIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0 0 0.6rem;
+}
+
+.modal-text {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0 0 1.6rem;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: flex-end;
+}
+
+.modal-btn {
+  padding: 0.65rem 1.3rem;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+}
+
+.modal-btn--cancel {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+.modal-btn--cancel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+}
+
+.modal-btn--confirm.modal-btn--danger {
+  background: linear-gradient(135deg, #dc2626, #f87171);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.35);
+}
+
+.modal-btn--confirm.modal-btn--danger:hover {
+  box-shadow: 0 5px 18px rgba(220, 38, 38, 0.5);
+  transform: translateY(-1px);
+}
+
+.modal-btn--confirm.modal-btn--primary {
+  background: linear-gradient(135deg, #2a9df4, #4db8ff);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(42, 157, 244, 0.35);
+}
+
+.modal-btn--confirm.modal-btn--primary:hover {
+  box-shadow: 0 5px 18px rgba(42, 157, 244, 0.5);
+  transform: translateY(-1px);
+}
