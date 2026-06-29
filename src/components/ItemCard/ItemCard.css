@@ -15,9 +15,9 @@
 }
 
 .item-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(77, 184, 255, 0.2);
-  border-color: rgba(77, 184, 255, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .item-card-image-wrapper {
@@ -28,6 +28,8 @@
   height: 200px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .item-card-image {
@@ -38,7 +40,7 @@
 }
 
 .item-card:hover .item-card-image {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 .item-card-body {
@@ -54,8 +56,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #4db8ff;
-  opacity: 0.8;
+  color: #9bb0cb;
+  opacity: 0.85;
 }
 
 .item-card-name {
@@ -64,6 +66,16 @@
   color: #e2e8f0;
   margin: 0;
   line-height: 1.3;
+}
+
+.item-card-name-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.item-card-name-link:hover {
+  color: #b9c8de;
 }
 
 .item-card-price {
@@ -76,23 +88,25 @@
 .item-card-btn {
   width: 100%;
   padding: 0.7rem;
-  background: rgba(42, 157, 244, 0.1);
-  border: 1px solid rgba(42, 157, 244, 0.3);
+  background: rgba(94, 129, 172, 0.12);
+  border: 1px solid rgba(94, 129, 172, 0.35);
   border-radius: 9px;
-  color: #4db8ff;
+  color: #9bb0cb;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.25s, border-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
+  transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.2s;
   font-family: inherit;
   margin-top: auto;
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
 
 .item-card-btn:hover {
-  background: linear-gradient(135deg, #2a9df4, #4db8ff);
-  border-color: transparent;
+  background: #4f6e93;
+  border-color: #4f6e93;
   color: #fff;
-  box-shadow: 0 4px 16px rgba(42, 157, 244, 0.35);
   transform: translateY(-1px);
 }
 

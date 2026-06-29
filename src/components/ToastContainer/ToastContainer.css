@@ -24,11 +24,11 @@
 }
 
 .toast-item--success {
-  background: linear-gradient(135deg, #059669, #34d399);
+  background: #3a7d5c;
 }
 
 .toast-item--error {
-  background: linear-gradient(135deg, #dc2626, #f87171);
+  background: #b3413a;
 }
 
 .toast-dot {

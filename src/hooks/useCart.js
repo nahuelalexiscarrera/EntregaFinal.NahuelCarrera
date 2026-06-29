@@ -17,9 +17,10 @@ function syncStorage(cart) {
 export function useCart() {
   const [cart, setCart] = useState(loadCart);
 
-  const addItem = useCallback((product) => {
+  const addItem = useCallback((product, quantity = 1) => {
     setCart((prev) => {
-      const next = [...prev, product];
+      const additions = Array.from({ length: quantity }, () => product);
+      const next = [...prev, ...additions];
       syncStorage(next);
       return next;
     });

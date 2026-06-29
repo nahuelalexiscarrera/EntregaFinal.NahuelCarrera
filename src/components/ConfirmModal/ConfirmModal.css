@@ -18,7 +18,7 @@
 
 .modal-box {
   background: #1e293b;
-  border: 1px solid rgba(77, 184, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 18px;
   padding: 2rem 1.75rem;
   width: 100%;
@@ -58,7 +58,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
   border: none;
   font-family: inherit;
 }
@@ -75,23 +75,21 @@
 }
 
 .modal-btn--confirm.modal-btn--danger {
-  background: linear-gradient(135deg, #dc2626, #f87171);
+  background: #b3413a;
   color: #fff;
-  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.35);
 }
 
 .modal-btn--confirm.modal-btn--danger:hover {
-  box-shadow: 0 5px 18px rgba(220, 38, 38, 0.5);
+  background: #c24d45;
   transform: translateY(-1px);
 }
 
 .modal-btn--confirm.modal-btn--primary {
-  background: linear-gradient(135deg, #2a9df4, #4db8ff);
+  background: #4f6e93;
   color: #fff;
-  box-shadow: 0 3px 12px rgba(42, 157, 244, 0.35);
 }
 
 .modal-btn--confirm.modal-btn--primary:hover {
-  box-shadow: 0 5px 18px rgba(42, 157, 244, 0.5);
+  background: #5c7da3;
   transform: translateY(-1px);
 }

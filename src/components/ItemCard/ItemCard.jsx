@@ -1,29 +1,32 @@
+import { Link } from "react-router-dom";
 import "./ItemCard.css";
 
-const ItemCard = ({ product, onAdd }) => {
+const ItemCard = ({ product }) => {
   return (
     <article className="item-card" id={`product-${product.id}`}>
-      <div className="item-card-image-wrapper">
+      <Link to={`/item/${product.id}`} className="item-card-image-wrapper" aria-label={`Ver ${product.nombre}`}>
         <img
           src={product.img}
           alt={product.nombre}
           className="item-card-image"
           loading="lazy"
         />
-      </div>
+      </Link>
       <div className="item-card-body">
         <span className="item-card-category">{product.categoria}</span>
-        <h3 className="item-card-name">{product.nombre}</h3>
+        <h3 className="item-card-name">
+          <Link to={`/item/${product.id}`} className="item-card-name-link">
+            {product.nombre}
+          </Link>
+        </h3>
         <p className="item-card-price">${product.precio.toFixed(2)}</p>
-        <button
-          className="item-card-btn btn-agregar"
-          data-id={product.id}
-          onClick={() => onAdd(product)}
-          id={`btn-agregar-${product.id}`}
-          aria-label={`Agregar ${product.nombre} al carrito`}
+        <Link
+          to={`/item/${product.id}`}
+          className="item-card-btn"
+          id={`btn-detalle-${product.id}`}
         >
-          Agregar al carrito
-        </button>
+          Ver detalle
+        </Link>
       </div>
     </article>
   );

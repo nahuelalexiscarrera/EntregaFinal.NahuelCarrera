@@ -1,0 +1,12 @@
+.ilc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+
+@media (max-width: 640px) {
+  .ilc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}

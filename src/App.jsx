@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
 import { useCart } from "./hooks/useCart";
-import { useProducts } from "./hooks/useProducts";
 import { useToast } from "./hooks/useToast";
 import AuthPage from "./components/AuthPage/AuthPage";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import NotFound from "./components/NotFound/NotFound";
 import CartPanel from "./components/CartPanel/CartPanel";
 import ToastContainer from "./components/ToastContainer/ToastContainer";
 import ConfirmModal from "./components/ConfirmModal/ConfirmModal";
@@ -14,7 +16,6 @@ import "./App.css";
 const App = () => {
   const { session, login, register, logout } = useAuth();
   const { cart, addItem, removeItem, clearCart, total } = useCart();
-  const { filtered, loading, activeCategory, searchQuery, filterByCategory, filterBySearch } = useProducts();
   const { toasts, showToast } = useToast();
 
   const [cartOpen, setCartOpen] = useState(false);
@@ -44,9 +45,10 @@ const App = () => {
   };
 
   // --- Cart handlers ---
-  const handleAddItem = (product) => {
-    addItem(product);
-    showToast(`${product.nombre} agregado al carrito.`, "success");
+  const handleAddItem = (product, quantity = 1) => {
+    addItem(product, quantity);
+    const label = quantity > 1 ? `${quantity} x ${product.nombre}` : product.nombre;
+    showToast(`${label} agregado al carrito.`, "success");
   };
 
   const handleRemoveItem = (index) => {
@@ -109,16 +111,18 @@ const App = () => {
       />
 
       <main>
-        <ItemListContainer
-          greeting={`Hola ${session.nombre}, encontra tu proximo gadget`}
-          filtered={filtered}
-          loading={loading}
-          activeCategory={activeCategory}
-          searchQuery={searchQuery}
-          onFilter={filterByCategory}
-          onSearch={filterBySearch}
-          onAdd={handleAddItem}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={<ItemListContainer greeting={`Hola ${session.nombre}, encontra tu proximo gadget`} />}
+          />
+          <Route
+            path="/category/:categoryId"
+            element={<ItemListContainer greeting={`Hola ${session.nombre}, encontra tu proximo gadget`} />}
+          />
+          <Route path="/item/:itemId" element={<ItemDetailContainer onAdd={handleAddItem} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
 
       <footer className="app-footer">

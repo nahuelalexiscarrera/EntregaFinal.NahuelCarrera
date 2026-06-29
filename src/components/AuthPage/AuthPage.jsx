@@ -40,23 +40,15 @@ const AuthPage = ({ onLogin, onRegister }) => {
 
   return (
     <div className="auth-page">
-      <div className="auth-glow" aria-hidden="true" />
-
       <div className="auth-card">
         {/* Logo */}
         <div className="auth-logo" aria-label="TechStore">
           <svg width="44" height="44" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="36" height="36" rx="8" fill="url(#authLogoGrad)" />
+            <rect width="36" height="36" rx="8" fill="#4f6e93" />
             <path d="M8 10h20M18 10v16" stroke="white" strokeWidth="3" strokeLinecap="round" />
             <circle cx="26" cy="22" r="4" fill="white" fillOpacity="0.25" stroke="white" strokeWidth="2" />
             <circle cx="10" cy="22" r="4" fill="white" fillOpacity="0.25" stroke="white" strokeWidth="2" />
             <path d="M14 22h8" stroke="white" strokeWidth="2" strokeLinecap="round" />
-            <defs>
-              <linearGradient id="authLogoGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#2a9df4" />
-                <stop offset="1" stopColor="#4db8ff" />
-              </linearGradient>
-            </defs>
           </svg>
           <span className="auth-logo-text">
             Tech<span className="auth-logo-accent">Store</span>
